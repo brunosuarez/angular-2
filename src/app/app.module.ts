@@ -1,5 +1,5 @@
 import { CoreModule } from './core/core.module';
-import { HomeModule } from './home/signin/home.module';
+import { HomeModule } from './home/home.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
