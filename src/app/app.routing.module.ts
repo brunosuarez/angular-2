@@ -1,6 +1,3 @@
-import { SignUpComponent } from './home/signup/signup.component';
-import { AuthGuard } from './core/auth/auth.guard';
-import { SignInComponent } from './home/signin/signin.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -13,13 +10,13 @@ const routes: Routes = [
 
     {
       path: '',
-      component: SignInComponent,
-      canActivate: [AuthGuard]
+      pathMatch: 'full',
+      redirectTo: 'home'
     },
 
     {
-      path: 'signup',
-      component: SignUpComponent,
+      path: 'home',
+      loadChildren: './home/home.module.ts#HomeModule'
     },
 
     {
@@ -42,7 +39,7 @@ const routes: Routes = [
 ];
 @NgModule({
     imports: [
-        RouterModule.forRoot(routes)
+        RouterModule.forRoot(routes, { useHash: true})
     ],
     exports: [ RouterModule ]
 })
